@@ -25,11 +25,12 @@ const product = async (query) => {
 
   try {
     var pricediv = product_page.split(/<div id="unifiedPrice_feature_div".*>/g);
-    console.log("Printing Price Div: " + pricediv);
 
     original_price = pricediv[1]
       .split('<span class="a-offscreen">')[1]
       .split("</span>")[0];
+
+      console.log("original_price: " + original_price);
 
     try {
       price = pricediv[1]
@@ -37,18 +38,23 @@ const product = async (query) => {
           '<span class="a-price a-text-price a-size-medium apexPriceToPay" data-a-size="b" data-a-color="price">'
         )[1]
         .split("</span>")[0];
+        console.log("price: " + price);
       if (price.includes(">")) {
         price = price.split(">")[1];
       }
     } catch (pe) {}
 
     if (price === null) {
+      console.log("price null");
       price = pricediv[1]
         .split(/<span class="a-price-whole">/g)[1]
         .split("</span>")[0];
+        console.log("price null after: "+price);
     }
   } catch (error) {}
 
+  console.log("Before original_price: "+original_price);
+  console.log("Before price: "+price);
   if (original_price !== null) {
     original_price = parseFloat(
       original_price.replace("₹", "").replace(/,/g, "").trim()
