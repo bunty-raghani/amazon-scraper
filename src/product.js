@@ -25,6 +25,7 @@ const product = async (query) => {
 
   try {
     var pricediv = product_page.split(/<div id="unifiedPrice_feature_div".*>/g);
+    console.log("Printing Price Div: " + pricediv);
 
     original_price = pricediv[1]
       .split('<span class="a-offscreen">')[1]
