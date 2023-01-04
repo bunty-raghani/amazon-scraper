@@ -13,5 +13,8 @@
   "devDependencies": {
     "@cloudflare/wrangler": "^1.19.12",
     "miniflare": "^2.8.1"
+  },
+  "dependencies": {
+    "wrangler": "^2.6.2"
   }
 }
