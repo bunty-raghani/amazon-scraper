@@ -11,11 +11,11 @@ const product = async (query) => {
   try {
     var pricediv = product_page.split(/<div id="corePriceDisplay_desktop_feature_div".*>/g);
     //console.log("pricediv[0]: "+pricediv[0]);
-    console.log("pricediv[8]: "+pricediv[0].split('<span class="a-offscreen">')[8]);
+    //console.log("pricediv[8]: "+pricediv[0].split('<span class="a-offscreen">')[8]);
     
-    for (let i = 0; i<pricediv[0].split('<span class="a-offscreen">').length; i++) {
+    /*for (let i = 0; i<pricediv[0].split('<span class="a-offscreen">').length; i++) {
       console.log("pricediv[`i`]: " +i + " : "+pricediv[0].split('<span class="a-offscreen">')[i]);
-    }
+    }*/
     original_price = pricediv[0]
         .split('<span class="a-offscreen">')[11]
         .split("</span>")[0];
